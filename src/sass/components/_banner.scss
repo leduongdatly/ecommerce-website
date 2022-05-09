@@ -1,0 +1,12 @@
+.banner {
+    margin-top: 50px;
+
+    @include mobile {
+        margin-top: 20px;
+    }
+
+    img {
+        max-width: 100%;
+        object-fit: cover;
+    }
+}

@@ -1,0 +1,54 @@
+.policy {
+    margin-top: 50px;
+
+    @include mobile {
+        margin-top: 20px;
+    }
+
+    &__item {
+        @include flex(center, center);
+        color: $main-color;
+        box-shadow: $box-shadow;
+        padding: 20px 5px;
+        transition: 0.3s ease-out;
+
+        &:hover {
+            transform: translateY(-3px);
+        }
+
+        @include mobile {
+            @include flex(space-around, center);
+            margin-top: 4px;
+
+            &:hover {
+                transform: unset;
+            }
+        }
+
+        &-icon {
+            font-size: 3rem;
+            margin: 0 20px;
+        }
+
+        &-info {
+
+            &-name {
+                font-size: 1.6rem;
+                margin-bottom: 8px;
+
+                @include mobile {
+                    font-size: 1.4rem;
+                }
+            }
+
+            &-desc {
+                font-size: 1.6rem;
+                line-height: 1.2;
+
+                @include mobile {
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+}

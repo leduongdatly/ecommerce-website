@@ -1,0 +1,28 @@
+.pagination {
+    @include flex(center, center);
+    margin-top: 22px;
+
+    .page-item {
+       
+        .page-link {
+            @include flex(center, center);
+            font-size: 2rem;
+            width: 30px;
+            height: 30px;
+            margin: 0 4px;
+            border: 1px solid $black-color;
+
+            &:hover {
+                border: 1px solid red;
+                color: red;
+            }
+
+            &.active {
+                border: 1px solid red;
+                color: red;
+            }
+        }
+
+
+    }
+}

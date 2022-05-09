@@ -1,0 +1,110 @@
+.slider {
+    @include mobile {
+        padding: 0 12px;
+    }
+
+    &__wrap {
+
+        &-img {
+
+            &:focus-visible {
+                outline: none;
+                border: none;
+            }
+
+            &-image {
+                cursor: pointer;
+                border-radius: 20px;
+                overflow: hidden;
+                border: 1px solid #ccc;
+            }
+        }
+    }
+}
+
+.slick-arrow.slick-prev {
+    @include flex(space-between, center);
+    left: 25px;
+
+    @include mobile {
+        left: 15px;
+    }
+
+    &::before {
+        content: "";
+    }
+
+    .prev-btn {
+        background-color: $white-color;
+        display: block;
+        font-size: 5rem;
+        color: $main-color;
+        border-radius: 50%;
+        z-index: 100;
+        transition: 0.5s;
+
+        @include mobile {
+            font-size: 3rem;
+        }
+
+        @include tablet {
+            font-size: 4rem;
+        }
+    }
+}
+
+.slick-arrow.slick-next {
+    @include flex(space-between, center);
+    right: 25px;
+
+    @include mobile {
+        right: 15px;
+    }
+
+    &::before {
+        content: "";
+    }
+
+    .next-btn {
+        background-color: $white-color;
+        display: block;
+        font-size: 5rem;
+        color: $main-color;
+        border-radius: 50%;
+        z-index: 100;
+        transition: 0.5s;
+
+        @include mobile {
+            font-size: 3rem;
+        }
+
+        @include tablet {
+            font-size: 4rem;
+        }
+    }
+}
+
+.slick-next, .slick-prev {
+    font-size: 0;
+    line-height: 0;
+    top: 50%;
+    width: unset;
+    height: unset;
+    -webkit-transform: translate(0,-50%);
+    -ms-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: 0;
+    background: 0 0;
+    z-index: 1;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    opacity: 0.8;
+
+    @include mobile {
+        opacity: unset;
+    }
+}

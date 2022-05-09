@@ -1,0 +1,49 @@
+.custom-checkbox {
+    // @include flex(flex-start, center);
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.5rem;
+    line-height: 15px;
+
+    @include mobile {
+        font-size: 1.4rem;
+    }
+
+    cursor: pointer;
+
+    &:hover {
+        color: $main-color;
+    }
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    &__checkmark {
+        @include flex(center, center);
+        margin-right: 10px;
+        height: 15px;
+        width: 15px;
+        border: 1px solid $main-color;
+
+        i {
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+    }
+
+    input:checked ~ &__checkmark {
+        background-color: $main-color;
+        border: 1px solid $main-color;
+        color: $white-color;
+    }
+
+    input:checked ~ &__checkmark > i {
+        transform: scale(0.7);
+    }
+}

@@ -1,0 +1,113 @@
+.register {
+    height: auto;
+    padding-top: 50px;
+
+    @include mobile {
+        padding-top: 10px;
+    }
+
+    &__form {
+        background-color: #fff;
+        box-shadow: $box-shadow;
+        border-radius: 20px;
+
+        &-form {
+            padding: 20px;
+
+            &-error {
+                font-size: 1.6rem;
+                line-height: 1.6;
+                padding: 10px;
+                background-color: #f8d7da;
+                margin-bottom: 6px;
+                border: 1px solid #f5c6cb;
+                border-radius: 6px;
+            }
+
+            &-title {
+                font-size: 3rem;
+                line-height: 3rem;
+                text-align: center;
+                padding-bottom: 12px;
+                margin-bottom: 12px;
+                border-bottom: 1px solid #ccc;
+            }
+
+            &-input {
+                margin-bottom: 15px;
+
+                label {
+                    display: block;
+                    font-size: 2rem;
+                    line-height: 2rem;
+                    font-weight: 600;
+                    margin-bottom: 6px;
+                }
+
+                &-input {
+                    @include flex(flex-start, center);
+                    border: 1px solid #ccc;
+                    margin-bottom: 6px;
+
+                    input[type=password] {
+                        border: none;
+                        margin-bottom: 0;
+                    }
+
+                    input[type=text] {
+                        border: none;
+                        margin-bottom: 0;
+                    }
+
+                    &-show {
+                        font-size: 2rem;
+                        color: $black-color;
+                        margin: 0 10px;
+                        cursor: pointer;
+                    }
+                }
+
+                input {
+                    display: block;
+                    font-size: 1.6rem;
+                    line-height: 1.6rem;
+                    margin-bottom: 6px;
+                    border: 1px solid #ccc;
+                    outline: none;
+                    width: 100%;
+                    padding: 10px 5px;
+
+                    &::placeholder {
+                        font-size: 1.6rem;
+                        line-height: 1.6rem;
+                    }
+                }
+
+                &-error {
+                    font-size: 1.6rem;
+                    line-height: 1.6rem;
+                    font-weight: 500;
+                    color: red;
+                }
+            }
+
+            button {
+                width: 100%;
+            }
+
+            &-option {
+                font-size: 1.6rem;
+                line-height: 1.6rem;
+                margin-top: 15px;
+                padding: 10px 0;
+                text-align: center;
+
+                a {
+                    margin-left: 5px;
+                    font-weight: 600;
+                    color: $main-color;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,63 @@
+.cart {
+    margin-top: 24px;
+
+    &__empty {
+
+        h2 {
+            text-align: center;
+            font-size: 3rem;
+            line-height: 1.6;
+            margin: 20px 0;
+
+            @include mobile {
+                font-size: 2rem;
+            }
+
+            a {
+                color: $main-color;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    &__right {
+        background-color: $white-color;
+        padding: 10px;
+        box-shadow: $box-shadow;
+        margin-right: 0;
+
+        &-total {
+
+            &-product {
+                font-size: 2rem;
+                line-height: 1.6;
+                margin-bottom: 6px;
+            }
+
+            &-price {
+                font-size: 1.6rem;
+                line-height: 1.6;
+                margin-bottom: 6px;
+            }
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            margin-bottom: 6px;
+        }
+
+        a {
+            @include flex(center, center);
+            width: 100%;
+        }
+    }
+}
+
+.text-right {
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+}

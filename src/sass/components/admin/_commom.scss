@@ -1,0 +1,68 @@
+.commom {
+
+    &__title {
+        font-size: 3rem;
+        line-height: 1.6;
+        text-align: center;
+        margin: 12px;
+    }
+
+    &__btn {
+        margin-bottom: 12px;
+    }
+
+    &__table {
+
+        table {
+            border-collapse: collapse;
+            font-size: 1.6rem;
+            line-height: 1.6;
+            width: 100%;
+
+            td,
+            th {
+                border: 1px solid #ddd;
+                padding: 8px 16px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            tr {
+
+                th {
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+                    text-align: left;
+                    background-color: $main-color;
+                    color: white;
+                    border-top: 1px solid $main-color;
+                }
+
+                th:first-child {
+                    border-left: 1px solid $main-color ;
+                }
+
+                th:last-child {
+                    border-right: 1px solid $main-color ;
+                }
+
+                td {
+                    input {
+                        padding: 4px;
+                        width: 100%;
+                        border: 1px solid #ccc;
+                        outline: none;
+                        font-size: 1.6rem;
+                        line-height: 1.6;
+                    }
+
+                    button {
+                        margin: 0 6px;
+                    }
+                }
+            }
+        }
+    }
+}

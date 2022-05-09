@@ -1,0 +1,98 @@
+.wrap {
+    margin-bottom: 20px;
+
+    &__item {
+        @include flex(space-between, center);
+        padding-bottom: 12px;
+        border-bottom: 1px solid #ccc;
+
+        @include mobile {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &-img {
+
+            @include mobile {
+                margin-bottom: 6px;
+            }
+
+            img {
+                width: 100px;
+                height: 100px;
+                display: block;
+            }
+        }
+
+        &-detail {
+
+            a {
+                font-size: 1.6rem;
+                line-height: 1.6;
+
+                @include mobile {
+                    font-size: 1.4rem;
+                }
+            }
+
+            @include mobile {
+                margin-bottom: 6px;
+            }
+        }
+
+        &-price {
+            font-size: 1.6rem;
+            line-height: 1.6;
+
+            @include mobile {
+                margin-bottom: 6px;
+                font-size: 1.4rem;
+            }
+        }
+
+        &-control {
+            @include flex(center, center);
+            font-size: 1.6rem;
+            line-height: 1.6;
+            text-align: center;
+
+            &-btn {
+                width: 40px;
+                border: 1px solid black;
+                cursor: pointer;
+
+                &:hover {
+                    border: 1px solid $main-color;
+                    color: $main-color;
+                }
+            }
+
+            &-display {
+                width: 60px;
+                font-weight: 700;
+                color: $main-color;
+                border-top: 1px solid black;
+                border-bottom: 1px solid black;
+            }
+
+            @include mobile {
+                margin-bottom: 6px;
+            }
+        }
+
+        &-delete {
+            font-size: 2rem;
+            line-height: 1.6;
+            margin: 0 20px;
+            cursor: pointer;
+
+            &:hover i {
+                color: $main-color;
+            }
+
+            @include mobile {
+                margin: 0;
+            }
+        }
+    }
+}
