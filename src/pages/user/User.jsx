@@ -25,12 +25,11 @@ function User() {
     const { currentUser } = useAuth();
 
     useEffect(() => {
-        // dispatch(getAllProductRequest());
-        // dispatch(getAllBrandRequest());
         dispatch(getAllColorRequest());
         dispatch(getAllSizeRequest());
         dispatch(getAllUserRequest());
         dispatch(getAllCartRequest());
+        dispatch(getAllBrandRequest());
     }, [])
 
     return (
