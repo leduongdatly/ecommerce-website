@@ -15,7 +15,6 @@ const ProductView = ({ product }) => {
 
     const { currentUser } = useAuth();
 
-    // const [carts, setCarts] = useState([]);
     const [isAvailable, setIsAvailable] = useState(true);
     const [height, setHeight] = useState("300px");
     const [active, setActive] = useState(false);
@@ -35,19 +34,6 @@ const ProductView = ({ product }) => {
         setColor(undefined);
         setSize(undefined);
     }, [product]);
-
-    // useEffect(() => {
-    //     if (currentUser) {
-    //         localStorage.setItem("carts", JSON.stringify(cartsRedux));
-    //     }
-
-    //     const cartsData = JSON.parse(localStorage.getItem("carts"));
-    //     if (cartsData && cartsData.length > 0) {
-    //         setCarts(cartsData);
-    //     }
-    // }, [cartsRedux]);
-
-    console.log(cartsRedux);
 
     const onSeeMore = () => {
         setActive(!active)

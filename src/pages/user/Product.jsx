@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Helmet from "../../components/Helmet";
 import ProductView from "../../components/ProductView";
@@ -8,6 +9,8 @@ import productData from "../../utils/products";
 
 const Product = () => {
 
+    const productRedux = useSelector((state) => state.products.products);
+
     const [products, setProducts] = useState([]);
 
     const [product, setProduct] = useState(null);
@@ -16,9 +19,9 @@ const Product = () => {
 
     useEffect(() => {
         let data = JSON.parse(localStorage.getItem("products"));
-        if (data) {
-            setProducts(data);
-            const item = productData.getProductBySlug(data, slug);
+        if (productRedux) {
+            setProducts(productRedux);
+            const item = productData.getProductBySlug(productRedux, slug);
             if (item) {
                 setProduct(item);
             }

@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import Checkbox from "../../components/Checkbox";
 import Helmet from "../../components/Helmet";
 import PageBar from "../../components/PageBar";
@@ -6,39 +7,16 @@ import Pagination from "../../components/Pagination";
 
 const Catalog = () => {
 
-    const [productList, setProductList] = useState([]);
-    const [brand, setBrand] = useState([]);
-    const [colors, setColors] = useState([]);
-    const [size, setSize] = useState([]);
-    const [isShow, setIsShhow] = useState(false);
+    const brand = useSelector((state) => state.brands.brands);
+    const color = useSelector((state) => state.colors.colors);
+    const size = useSelector((state) => state.sizes.sizes);
+    const productList = useSelector((state) => state.products.products);
 
     const initFilter = {
         brand: [],
         color: [],
         size: []
     }
-
-    useEffect(() => {
-        const localProduct = JSON.parse(localStorage.getItem("products"));
-        if (localProduct && localProduct.length > 0) {
-            setProductList(localProduct);
-        }
-
-        const localBrand = JSON.parse(localStorage.getItem("brands"));
-        if (localBrand && localBrand.length > 0) {
-            setBrand(localBrand);
-        }
-
-        const localColor = JSON.parse(localStorage.getItem("colors"));
-        if (localColor && localColor.length > 0) {
-            setColors(localColor);
-        }
-
-        const localSize = JSON.parse(localStorage.getItem("sizes"));
-        if (localSize && localSize.length > 0) {
-            setSize(localSize);
-        }
-    }, []);
 
     const [products, setProducts] = useState(productList);
     const [currentPage, setCurrentPage] = useState(1);
@@ -158,7 +136,7 @@ const Catalog = () => {
                                     </div>
                                     <div className="catalog__filter__widget__content">
                                         {
-                                            colors.map((item, index) => (
+                                            color.map((item, index) => (
                                                 <div key={index} className="catalog__filter__widget__content__item">
                                                     <Checkbox
                                                         label={item.color}
