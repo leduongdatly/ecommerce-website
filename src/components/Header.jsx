@@ -30,8 +30,8 @@ const Header = () => {
     const activeNav = mainNav.findIndex(e => e.path === pathname);
 
     const [check, setCheck] = useState(false);
+    const [hd, setHd] = useState(false);
 
-    const headerRef = useRef(null);
     const menuLeft = useRef(null);
 
     const menuToggle = () => menuLeft.current.classList.toggle('active');
@@ -42,11 +42,7 @@ const Header = () => {
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
-            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-                headerRef.current.classList.add('shrink');
-            } else {
-                headerRef.current.classList.remove('shrink');
-            }
+            setHd(document.body.scrollTop > 80 || document.documentElement.scrollTop > 80);
         })
         return () => {
             window.removeEventListener("scroll");
@@ -63,7 +59,7 @@ const Header = () => {
     }
 
     return (
-        <div className="header" ref={headerRef}>
+        <div className={hd ? "header shrink" : "header"}>
             <div className="grid wide">
                 <div className="header__logo">
                     <Link to="/">

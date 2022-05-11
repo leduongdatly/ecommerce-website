@@ -59,3 +59,17 @@ export const deleteFromCartRequest = (id) => {
         dispatch(deleteFromCart(id));
     }
 }
+
+// export const buyProduct = (id) => {
+//     return {
+//         type: types.DELETE_FROM_CART,
+//         payload: id
+//     }
+// }
+
+// export const buyProductRequest = (id) => {
+//     return async (dispatch) => {
+//         await cartFirebase.buyProduct(id);
+//         dispatch(buyProduct(id));
+//     }
+// }

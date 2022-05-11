@@ -1,46 +1,56 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CartDisplay from '../../components/CartDisplay';
 import Helmet from '../../components/Helmet';
 import { useAuth } from '../../context/UserAuthContext';
+import { getAllCartRequest } from '../../redux/actions/CartAction';
 import vietnameseCurrency from '../../utils/currency';
 
 const Cart = () => {
 
-    const cartsRedux = useSelector((state) => state.carts.carts);
     const { currentUser } = useAuth();
 
-    const [carts, setCarts] = useState([]);
+    const cartsRedux = useSelector((state) => state.carts.carts);
+    const dispatch = useDispatch();
+
+    // const [carts, setCarts] = useState([]);
     const [totalProducts, setTotalProducts] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
 
+    // useEffect(() => {
+    //     if (currentUser) {
+    //         localStorage.setItem("carts", JSON.stringify(cartsRedux));
+    //     }
+    //     const cartsData = JSON.parse(localStorage.getItem("carts"));
+    //     if (cartsData.length > 0) {
+    //         setCarts(cartsData);
+    //     }
+    // }, [cartsRedux]);
+
     useEffect(() => {
-        if (currentUser) {
-            localStorage.setItem("carts", JSON.stringify(cartsRedux));
-        }
-        const cartsData = JSON.parse(localStorage.getItem("carts"));
-        if (cartsData) {
-            setCarts(cartsData);
-        }
+        setTotalPrice(cartsRedux.reduce((total, item) => total + Number(item.price), 0))
+        setTotalProducts(cartsRedux.reduce((total, item) => total + Number(item.quantity), 0))
     }, [cartsRedux]);
 
     useEffect(() => {
-        setTotalPrice(carts.reduce((total, item) => total + (Number(item.quantity) * Number(item.price)), 0))
-        setTotalProducts(carts.reduce((total, item) => total + Number(item.quantity), 0))
-    }, [carts]);
+        dispatch(getAllCartRequest());
+    }, []);
+
+    const onBuy = () => {
+    }
 
     return (
         <Helmet title="Giỏ hàng">
             <div className="cart">
                 {
-                    carts.length > 0
+                    cartsRedux.length > 0
                         ?
                         <div className="grid wide">
                             <div className="row">
                                 <div className="col l-12 m-12 c-12">
                                     {
-                                        carts.map((item, index) => {
+                                        cartsRedux.map((item, index) => {
                                             return (
                                                 <CartDisplay key={index} data={item} />
                                             )
@@ -54,7 +64,7 @@ const Cart = () => {
                                     <div className="cart__right">
                                         <h3 className="cart__right-total-product">Tổng sản phẩm: {totalProducts}</h3>
                                         <p className="cart__right-total-price">Tổng tiền: {vietnameseCurrency(totalPrice)}</p>
-                                        <button className="btn btn--primary">Đặt hàng</button>
+                                        <button className="btn btn--primary" onClick={onBuy}>Đặt hàng</button>
                                         <Link to="/catalog" className="btn btn--primary">Tiếp tục mua hàng</Link>
                                     </div>
                                 </div>

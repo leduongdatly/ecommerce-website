@@ -25,8 +25,8 @@ function User() {
     const { currentUser } = useAuth();
 
     useEffect(() => {
-        dispatch(getAllProductRequest());
-        dispatch(getAllBrandRequest());
+        // dispatch(getAllProductRequest());
+        // dispatch(getAllBrandRequest());
         dispatch(getAllColorRequest());
         dispatch(getAllSizeRequest());
         dispatch(getAllUserRequest());
