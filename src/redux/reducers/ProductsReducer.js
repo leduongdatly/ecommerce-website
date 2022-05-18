@@ -15,7 +15,21 @@ const productReducer = (state = initialState, action) => {
         case types.ADD_NEW_PRODUCT:
             return {
                 ...state,
-                products: [...state.products, data]
+                // products: [...state.products, data]
+            }
+        case types.UPDATE_PRODUCT:
+            return {
+                ...state,
+                products: state.products.map(item =>
+                    item.slug === data.slug ? data : item
+                )
+            }
+        case types.DELETE_PRODUCT:
+            return {
+                ...state,
+                products: state.products.filter(item =>
+                    item.id !== data
+                )
             }
         default: return state
     }

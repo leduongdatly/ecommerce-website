@@ -59,7 +59,7 @@ const Home = () => {
                 {/* end policy */}
 
                 {/* begin show product */}
-                <ShowProduct title="Sản phẩm mới" data={productsRedux} count={4} />
+                <ShowProduct title="Iphone" data={productsRedux} count={4} brand="Iphone" />
                 {/* end show product */}
 
                 {/* begin banner */}
@@ -67,7 +67,7 @@ const Home = () => {
                 {/* end banner */}
 
                 {/* begin show product */}
-                <ShowProduct title="Sản phẩm liên quan" data={productsRedux} count={4} />
+                <ShowProduct title="Samsung" data={productsRedux} count={4} brand="Samsung" />
                 {/* end show product */}
 
                 {/* begin banner */}

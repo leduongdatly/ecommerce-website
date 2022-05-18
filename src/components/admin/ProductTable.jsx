@@ -1,15 +1,23 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { deleteProductRequest } from "../../redux/actions/ProductsAction";
+import vietnameseCurrency from "../../utils/currency";
 
 const ProductTable = ({ products }) => {
 
-    console.log(products)
+    const dispatch = useDispatch();
+
+    const handleDelete = (id) => {
+        dispatch(deleteProductRequest(id));
+    }
 
     const showProduct = () => {
         let result = [];
         if (products) {
             result = products.map((item, index) => {
                 return (
-                    < tr >
+                    < tr key={index} >
                         <td>{index + 1}</td>
                         <td>
                             <div className="product__table-img">
@@ -17,37 +25,38 @@ const ProductTable = ({ products }) => {
                             </div>
                         </td>
                         <td>
-                            {
-                                item.colors.map((a, index) => {
-                                    return (
-                                        <p key={index}>{a.color}, </p>
-                                    )
-                                })
-                            }
+                            <p className="product__table-brand">{item.brand}</p>
                         </td>
                         <td>
                             {
                                 item.sizes.map((a, index) => {
                                     return (
-                                        <p key={index}>{a.size}, </p>
+                                        <p key={index}>{a.size} </p>
                                     )
                                 })
                             }
                         </td>
                         <td>
-                            <p className="product__table-brand">{item.brand}</p>
+                            {
+                                item.colors.map((a, index) => {
+                                    return (
+                                        <p key={index}>{a.color} </p>
+                                    )
+                                })
+                            }
                         </td>
                         <td>
-                            <p className="product__table-price">{item.price}</p>
+                            <p className="product__table-price">{vietnameseCurrency(item.price)}</p>
                         </td>
                         <td>
-                            <p className="product__table-sale">{item.sale}</p>
+                            <p className="product__table-sale">{item.sale}%</p>
                         </td>
                         <td>
                             <p className="product__table-quantity">{item.quantity}</p>
                         </td>
                         <td>
-                            <button className="btn btn--primary">Cập nhật</button>
+                            <Link to={`/product-manage/edit/${item.slug}`} className="btn btn--primary">Cập nhật</Link>
+                            <button className="btn btn--primary" onClick={() => handleDelete(item.id)}>Xóa</button>
                         </td>
                     </tr >
                 )

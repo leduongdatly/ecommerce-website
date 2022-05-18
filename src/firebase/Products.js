@@ -1,4 +1,4 @@
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase-config";
 
 const productsFirebase = {
@@ -9,7 +9,15 @@ const productsFirebase = {
     addNewProduct: (data) => {
         const productsCollectionRef = collection(db, "products");
         return addDoc(productsCollectionRef, data);
-    }
+    },
+    updateProduct: (data, id) => {
+        const productsDoc = doc(db, "products", id);
+        return updateDoc(productsDoc, data);
+    },
+    deleteProduct: (id) => {
+        const productsDoc = doc(db, "products", id);
+        return deleteDoc(productsDoc);
+    },
 }
 
 export default productsFirebase;

@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from "../context/UserAuthContext";
 import { addToUserCartRequest, getAllCartRequest, updateUserCartQuantityRequest } from "../redux/actions/CartAction";
 import vietnameseCurrency from "../utils/currency";
 import SlickSlider from "./SlickSlider";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const ProductView = ({ product }) => {
 

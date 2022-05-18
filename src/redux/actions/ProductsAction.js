@@ -27,17 +27,35 @@ export const addNewProduct = (product) => {
 
 export const addNewProductRequest = (data) => {
     return async (dispatch) => {
-        try {
-            await productsFirebase.addNewProduct(data)
-                .then((result) => {
-                    console.log(result)
-                    dispatch(addNewProduct(data));
-                })
-                .catch((err) => {
-                    console.log(err);
-                })
-        } catch (err) {
-            console.log(err)
-        }
+        await productsFirebase.addNewProduct(data)
+        dispatch(addNewProduct(data));
+    }
+}
+
+export const updateProducts = (product) => {
+    return {
+        type: types.UPDATE_PRODUCT,
+        payload: product
+    }
+}
+
+export const updateProductRequest = (data, id) => {
+    return async (dispatch) => {
+        await productsFirebase.updateProduct(data, id);
+        dispatch(updateProducts(data));
+    }
+}
+
+export const deleteProducts = (id) => {
+    return {
+        type: types.DELETE_PRODUCT,
+        payload: id
+    }
+}
+
+export const deleteProductRequest = (id) => {
+    return async (dispatch) => {
+        await productsFirebase.deleteProduct(id);
+        dispatch(deleteProducts(id));
     }
 }

@@ -11,16 +11,15 @@ const Product = () => {
 
     const productRedux = useSelector((state) => state.products.products);
 
-    const [products, setProducts] = useState([]);
+    // const [products, setProducts] = useState([]);
 
     const [product, setProduct] = useState(null);
-
     const { slug } = useParams();
 
     useEffect(() => {
-        let data = JSON.parse(localStorage.getItem("products"));
+        // let data = JSON.parse(localStorage.getItem("products"));
         if (productRedux) {
-            setProducts(productRedux);
+            // setProducts(productRedux);
             const item = productData.getProductBySlug(productRedux, slug);
             if (item) {
                 setProduct(item);
@@ -40,7 +39,7 @@ const Product = () => {
         <Helmet title={slug}>
             <div className="product">
                 <ProductView product={product} />
-                <ShowProduct title="Sản phẩm liên quan" data={products} count={4} />
+                <ShowProduct title="Sản phẩm liên quan" data={productRedux} count={4} brand={product && product.brand} />
             </div>
         </Helmet>
     )

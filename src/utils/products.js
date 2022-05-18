@@ -9,9 +9,14 @@ const getProductBySlug = (products, slug) => {
     return products.find((item) => item.slug === slug);
 }
 
+const getProductByBrand = (products, brand) => {
+    return products.filter((item) => item.brand === brand)
+}
+
 const productData = {
     getProducts,
-    getProductBySlug
+    getProductBySlug,
+    getProductByBrand
 }
 
 export default productData;

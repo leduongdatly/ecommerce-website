@@ -42,6 +42,7 @@ const Admin = () => {
                             <Route path="size-manage" element={<Size />} />
                             <Route path="product-manage" element={<Product />} />
                             <Route path="product-manage/add" element={<ProductForm />} />
+                            <Route path="product-manage/edit/:slug" element={<ProductForm />} />
                         </Routes>
                     </div>
                 </div>

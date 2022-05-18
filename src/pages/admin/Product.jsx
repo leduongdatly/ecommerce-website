@@ -19,9 +19,9 @@ const Product = () => {
                             <tr>
                                 <th>STT</th>
                                 <th>Avatar</th>
-                                <th>Màu sắc</th>
+                                <th>Thương hiêuh</th>
                                 <th>Kích cỡ</th>
-                                <th>Thương hiệu</th>
+                                <th>Màu sắc</th>
                                 <th>Giá</th>
                                 <th>Sale</th>
                                 <th>Số lượng</th>

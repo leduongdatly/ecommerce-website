@@ -1,6 +1,8 @@
 // PRODUCT
 export const GET_ALL_PRODUCT = "GET_ALL_PRODUCT";
 export const ADD_NEW_PRODUCT = "ADD_NEW_PRODUCT";
+export const UPDATE_PRODUCT = "UPDATE_PRODUCT";
+export const DELETE_PRODUCT = "DELETE_PRODUCT";
 
 // BRAND
 export const GET_ALL_BRAND = "GET_ALL_BRAND";

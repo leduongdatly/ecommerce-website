@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import productData from "../utils/products";
 import vietnameseCurrency from "../utils/currency";
 
-const ShowProduct = ({ title, data, count }) => {
+const ShowProduct = ({ title, data, count, brand }) => {
     return (
         <section className="product__container">
             <div className="grid wide">
@@ -12,7 +12,7 @@ const ShowProduct = ({ title, data, count }) => {
                 </div>
                 <div className="row">
                     {
-                        productData.getProducts(data, count).map((item, index) => {
+                        productData.getProducts(productData.getProductByBrand(data, brand), count).map((item, index) => {
                             const newPrice = item.price - (item.price * (item.sale / 100))
                             return (
                                 <div className="col l-3 m-4 c-6" key={index}>
