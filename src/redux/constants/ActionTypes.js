@@ -27,6 +27,7 @@ export const GET_ALL_USER = "GET_ALL_USER";
 export const GET_USER_BY_ID = "GET_USER_BY_ID";
 export const ADD_USER = "ADD_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
+export const UPDATE_ROLE = "UPDATE_ROLE";
 
 // CART
 export const GET_ALL_CART = "GET_ALL_CART";

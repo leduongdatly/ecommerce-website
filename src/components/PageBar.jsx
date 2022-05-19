@@ -7,12 +7,17 @@ const PageBar = ({ currentPage, productsPerPage, totalProducts, paginate }) => {
         pageNumbers.push(i);
     }
 
+    const handleClick = (number) => {
+        paginate(number);
+        window.scrollTo(0, 0);
+    }
+
     return (
         <ul className="pagination">
             {
                 pageNumbers.map(number => (
                     <li key={number} className="page-item">
-                        <a onClick={() => paginate(number)} href={`#page-${number}`} className={currentPage === number ? "page-link active" : "page-link"}>
+                        <a onClick={() => handleClick(number)} href={`#page=${number}`} className={currentPage === number ? "page-link active" : "page-link"}>
                             {number}
                         </a>
                     </li>

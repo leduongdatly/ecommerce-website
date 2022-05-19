@@ -60,3 +60,17 @@ export const userLogout = () => {
         type: types.LOGOUT_USER,
     }
 }
+
+export const updateRole = (user) => {
+    return {
+        type: types.UPDATE_ROLE,
+        payload: user
+    }
+}
+
+export const updateRoleRequest = (id, user) => {
+    return async (dispatch) => {
+        await userFirebase.updateUser(id, user);
+        dispatch(updateRole(user))
+    }
+}

@@ -31,6 +31,14 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 role: JSON.parse(localStorage.getItem("role"))
             }
+        case types.UPDATE_ROLE:
+            const users = state.users.filter((item) => item.id !== data.id);
+            return {
+                ...state,
+                users: state.users.map((item) =>
+                    item.id === data.id ? data : item
+                )
+            }
         default: return state
     }
 }

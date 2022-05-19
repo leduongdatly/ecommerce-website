@@ -1,12 +1,14 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Checkbox from "../../components/Checkbox";
 import Helmet from "../../components/Helmet";
 import PageBar from "../../components/PageBar";
 import Pagination from "../../components/Pagination";
+import { getAllProductRequest } from "../../redux/actions/ProductsAction";
 
 const Catalog = () => {
 
+    const dispatch = useDispatch();
     const brand = useSelector((state) => state.brands.brands);
     const color = useSelector((state) => state.colors.colors);
     const size = useSelector((state) => state.sizes.sizes);
@@ -21,6 +23,7 @@ const Catalog = () => {
     const [products, setProducts] = useState(productList);
     const [currentPage, setCurrentPage] = useState(1);
     const [productsPerPage] = useState(12);
+    const [goToTop, setGoToTop] = useState(true);
 
     const [filter, setFilter] = useState(initFilter);
 
@@ -94,6 +97,10 @@ const Catalog = () => {
     useEffect(() => {
         updateProducts()
     }, [updateProducts]);
+
+    useEffect(() => {
+        dispatch(getAllProductRequest());
+    }, []);
 
     const filterRef = useRef(null);
 

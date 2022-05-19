@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, getDocs, setDoc } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase-config";
 
 const userFirebase = {
@@ -15,6 +15,11 @@ const userFirebase = {
     getUserById: (id) => {
         const userDoc =  doc(db, "user", id);
         return getDoc(userDoc);
+    },
+
+    updateUser: (id, data) => {
+        const userDoc =  doc(db, "user", id);
+        return updateDoc(userDoc, data);
     }
 }
 

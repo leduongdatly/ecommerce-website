@@ -32,7 +32,7 @@ const mainSide = [
     },
     {
         display: "Tài khoản",
-        path: "/user-manage",
+        path: "/account-manage",
         icon: <i className="fa-solid fa-user"></i>
     }
 ]
@@ -83,7 +83,7 @@ const Sidebar = () => {
                     })
                 }
                 <div className="sidebar__box-logout">
-                    <Link to="#" className="" onClick={onLogout}>
+                    <Link to="/" className="" onClick={onLogout}>
                         <i className="fa-solid fa-arrow-right-from-bracket"></i>
                         <span>Đăng xuất</span>
                     </Link>

@@ -15,6 +15,7 @@ import Home from "./Home";
 import Size from "./Size";
 import Product from "./Product";
 import ProductForm from "../../components/admin/ProductForm";
+import Account from "./Account";
 
 const Admin = () => {
 
@@ -43,6 +44,7 @@ const Admin = () => {
                             <Route path="product-manage" element={<Product />} />
                             <Route path="product-manage/add" element={<ProductForm />} />
                             <Route path="product-manage/edit/:slug" element={<ProductForm />} />
+                            <Route path="account-manage" element={<Account />} />
                         </Routes>
                     </div>
                 </div>
